@@ -5,6 +5,7 @@
 
 __author__ = 'HUA'
 
+from genericpath import isdir
 import os
 
 #操作系统类型
@@ -37,7 +38,17 @@ f = os.path.splitext('E:\\pythonTest\\test.txt')
 print(f[0] + '-----' + f[1])
 
 #对文件重命名
-os.rename('test.txt','test1.py')
+#os.rename('test.txt','test1.py')
 #删掉文件
-os.remove('test1.py')
+#os.remove('test1.py')
 
+#列出当前目录下所有目录
+f = [x for x in os.listdir('.') if os.path.isdir(x)]
+print(f)
+
+#列出所有py文件
+f = [
+    x for x in os.listdir('.')
+    if os.path.isfile(x) and os.path.splitext(x)[1] == '.py'
+]
+print(f)
