@@ -28,3 +28,8 @@ print('Dump Student:', std_data)
 rebuild = json.loads(
     std_data, object_hook=lambda d: Student(d['name'], d['age'], d['score']))
 print(rebuild)
+
+#是否进行ASCII码转义
+obj = dict(name='小明', age=20)
+s = json.dumps(obj, ensure_ascii=False)
+print(s)
