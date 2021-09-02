@@ -4,13 +4,15 @@
 import time, sys, queue
 from multiprocessing.managers import BaseManager
 
+
 # 创建类似的QueueManager,继承BaseManager,用于后面创建管理器
 class QueueManager(BaseManager):
     pass
 
+
 # 第一步：使用QueueManager注册用于获取Queue的方法名称
 # 前面服务进程已经将队列名称暴露到网络中，
-# 该任务进程注册时只需要提供名称即可，与服务进程中队列名称一致
+# 该任务进程注册时只需要提供名称即可，与服务进程中队列名称一致å
 QueueManager.register('get_task_queue')
 QueueManager.register('get_result_queue')
 
@@ -31,9 +33,9 @@ for i in range(10):
     try:
         # 前面服务进程向task队列中放入了n,这里取出n
         # n和n相乘，并将相乘的算式和结果放入到result队列中去
-        n = task.get(timeout=1) # 每次等待1秒后取出任务
+        n = task.get(timeout=1)  # 每次等待1秒后取出任务
         print("run task %d * %d..." % (n, n))
-        r = '%d * %d = %d' % (n, n, n*n)
+        r = '%d * %d = %d' % (n, n, n * n)
         time.sleep(1)
         result.put(r)
     except queue.Empty:
