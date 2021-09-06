@@ -48,8 +48,8 @@ def to_timestamp(dt_str, tz_str):
     str_hour = a.group(1) + a.group(2)
     print(str_hour)
     tz = timezone(timedelta(hours=int(str_hour)))
-    utcStr_rt = rtdatetime.replace(tzinfo=tz)
-    return utcStr_rt.timestamp()
+    utc_rt = rtdatetime.replace(tzinfo=tz)
+    return utc_rt.timestamp()
 
 
 # 测试:
