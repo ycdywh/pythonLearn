@@ -34,7 +34,7 @@ print('current + 10 hours= ', cday + timedelta(hours=10))
 print('current - 1 day= ', cday - timedelta(days=1))
 print('current + 2.5 days = ', cday + timedelta(days=2, hours=12))
 
-#把时间从UTC+0 时区转换为UTC+8
+#把时间从UTC+0 时区转换为UTC+8 , astimezone改变时区会改变时间，replace改变时区不会变化时间
 utc_dt = datetime.utcnow().replace(tzinfo=timezone.utc)
 utc8_dt = utc_dt.astimezone(timezone(timedelta(hours=8)))
 print('UTC+0:00 now = ', utc_dt)
